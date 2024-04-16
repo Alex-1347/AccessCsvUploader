@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>New Member</title>
+  <meta name="robots" content="noindex,nofollow">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+  <style type="text/css">
+   /* overall rules */
+   *{ box-sizing:border-box; }
+   html,body{ margin:0;padding:0;background:#ddd;color:#333;font-family:'Open Sans','Trebuchet MS','Arial',sans-serif;font-size:14px; }
+   .container{ width:90%;float:left;margin-left:5%;background:#fff;padding:10px; }
+   a{ text-decoration:none;color:#c33; }
+   
+   /* header and footer */
+   header,footer,article,nav,section{ float:left;padding:10px; }
+   header,footer{ width:100%; }
+   header,footer{ background-color:#999;color:#fff;text-align:right;height:100px; }
+   header{ font-size:1.8em;font-weight:bold; }
+   header big{ line-height:130px;vertical-align:bottom; }
+   
+   footer{ background-color:#999;text-align:center;height:40px; }
+   footer a{ text-decoration:underline;color:#fff;font-weight:bold; }
+   
+   /* navigation on the left hand side */
+   nav{ text-align:center;width:20%;margin-right:1%;border:1px solid #ccc;margin:5px;border-radius: 3px; }
+   nav a{ display:block;width:100%;background-color:#c33;color:#fff;height:30px;margin-bottom:10px;padding:10px;border-radius:3px;line-height:10px;vertical-align:middle; }
+   nav a:hover,nav a:active{ background-color:#999999}
+	  .selected{background-color: #999}
+   
+   /* <article> tag is our 'content area' */
+   article{ width:75%; }
+   h1{ padding:0;margin:0 0 20px 0; }
+   
+   /* section */
+   article section{ padding:0; }
+   
+   /* basic page division */
+	  .halves-1{width: 100%;float: left}
+	  .halves-2{ width:50%}
+	  .main-left{top: 10px}
+   
+	/* some simple table styles */
+	table.table-stats{
+	border-radius: 15px 15px 15px 15px;
+	border: 1px solid #e5e5e5;
+	padding:2px;
+	border-spacing: 0;
+	table-layout:fixed;
+	width:90%;}
+   
+   td a:hover{
+	   text-decoration:underline}
+   
+  </style>
+ </head> 
+ <body>
+ 
+ 
+<!-- script to preview image -->
+<script language="javascript" type="text/javascript">
+window.onload = function () {
+    var fileUpload = document.getElementById("fileupload");
+    fileUpload.onchange = function () {
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = document.getElementById("dvPreview");
+            dvPreview.innerHTML = "";
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx)$/;
+            for (var i = 0; i < fileUpload.files.length; i++) {
+                var file = fileUpload.files[i];
+                if (regex.test(file.name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = document.createElement("IMG");
+                        img.height = "200";
+                        img.width = "400";
+                        img.src = e.target.result;
+                        dvPreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert(file.name + " is not a valid XLSX file.");
+                    dvPreview.innerHTML = "";
+                    return false;
+                }
+            }
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    }
+};
+</script>
+
+
+<!-- script to calculate age -->
+<script language="javascript" type="text/javascript">
+function submitBirthday() {
+    var minutes = 1000 * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+
+    var birthday = Date.parse(document.getElementById("myBirthday").value);
+    var dateNow = new Date();
+    var YearsOld = Math.round((dateNow-birthday)/ years);
+
+    document.getElementById("displayBirthday").innerHTML = (" Age: " + YearsOld);
+}
+</script>
+
+
+
+  <div class="container">
+   <header>
+    <big>New member section</big>
+ 
+   </header>
+
+   <article>
+
+	   <p><b>Use this page to save member data into Access database.</b></p>
+	   <p><small>Note: only .xlsx format is accepted.</small></p>
+
+
+
+
+    <section>
+     <div>
+<form action="validation.asp" enctype="multipart/form-data" method="post">
+	<table width="450" height="340" border="0" cellpadding="5" align="center">
+	
+    <tr><td>File: </td><td><font color="#FF0000"> *</font><input id="fileupload" type="file" name="file1" required />
+</td></tr>
+
+    <tr><td align="right"><a href="javascript:location.reload()">Clear</a></td><td><input type="submit" value=" Upload "></td></tr>
+
+
+    </table>
+    </form>
+     </div>
+     
+     
+     
+    
+
+
+
+
+    
+    
+    
+    
+    
+   
+   </article>
+   <footer>
+    Test page
+   </footer>
+  </div>  
+ </body>   
+</html>

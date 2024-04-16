@@ -1,0 +1,5 @@
+﻿16/04/2024 11:24:03 Read 4 records from E:\Projects\AccessUploader\jaypaulss-attachments\test.csv
+INSERT INTO member (ID, Forename, Address) VALUES ('1', 'Forename','Address');
+INSERT INTO member (ID, Forename, Address) VALUES ('2', 'John','royal road new york');
+INSERT INTO member (ID, Forename, Address) VALUES ('3', 'Patrick','royal road italy');
+INSERT INTO member (ID, Forename, Address) VALUES ('4', 'Sam','royal road california');
