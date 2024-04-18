@@ -1,0 +1,14 @@
+-----------------------------25564417141926821773937335756
+Content-Disposition: form-data; name="file"; filename="test.csv"
+Content-Type: application/vnd.ms-excel
+
+"Forename","Address"
+"John","royal road new york"
+"Patrick","royal road italy"
+"Sam","royal road california"
+
+-----------------------------25564417141926821773937335756
+Content-Disposition: form-data; name="FileUpload"
+
+Upload 2 filed CSV file to Access
+-----------------------------25564417141926821773937335756--
